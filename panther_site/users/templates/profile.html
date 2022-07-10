@@ -1,0 +1,21 @@
+{% extends  'base.html' %}
+
+{% block main %}
+<h1>{{ user.username }}</h4>
+<p>Telegram ID: {{ user.chat_id }}</p>
+<p>Telegram name: {{ tg_name }}</p>
+
+{% if tg_link %}
+<p>Telegram username: {{ user.tg_username }}</p>
+<form>
+    <a href="{{ tg_link }}">
+        <input type="button" value="Go to Telegram account">
+    </a>
+</form>
+{% else %}
+<p>You haven't telegram link because your account is private</p>
+{% endif %}
+<br>
+<a href="{% url 'logout' %}">logout</a>
+
+{% endblock %}
